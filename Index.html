@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>تهنئة مباركة</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(180deg,#0b3d2e,#021f17);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Tahoma',sans-serif;
+  color:#f5e6b3;
+}
+
+/* الحاوية */
+.wrapper{
+  animation:fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* البوكس */
+.box{
+  width:320px;
+  height:240px;
+  background:#0f5132;
+  border-radius:22px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 20px 50px rgba(0,0,0,.5),
+             inset 0 0 0 1px rgba(255,215,0,.25);
+}
+
+/* الغطاء */
+.lid{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,#146c43,#0f5132);
+  border-radius:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transform-origin:top;
+  transition:transform 1.4s ease;
+}
+
+/* الاسم */
+.name{
+  font-size:24px;
+  color:#ffd700;
+  margin-bottom:6px;
+}
+
+/* خط ذهبي */
+.line{
+  width:60px;
+  height:2px;
+  background:#ffd700;
+  opacity:.7;
+  margin-bottom:10px;
+}
+
+/* العنوان */
+.title{
+  font-size:18px;
+  opacity:.9;
+}
+
+/* المحتوى */
+.content{
+  padding:22px;
+  text-align:center;
+  font-size:17px;
+  line-height:2;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+
+/* الفتح */
+.box.open .lid{
+  transform:rotateX(115deg);
+}
+.box.open .content{
+  opacity:1;
+}
+
+/* كل عام وانت بخير */
+.good{
+  margin-top:14px;
+  font-size:20px;
+  color:#ffd700;
+}
+
+/* الصلاة على النبي */
+.salah{
+  margin-top:8px;
+  font-size:15px;
+  opacity:.85;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="box" onclick="openBox(this)">
+    <div class="lid">
+      <div class="name">محمد تامر</div>
+      <div class="line"></div>
+      <div class="title">رسالة تهنئة مباركة</div>
+    </div>
+
+    <div class="content">
+      🤲<br>
+      عامٌ جديد نبدأه بذكر الله<br>
+      نسأله أن يجعله عام خير<br>
+      وبركة وطمأنينة وطاعة<br>
+
+      <div class="good">كل عام وأنت بخير</div>
+      <div class="salah">اللهم صلِّ وسلم على نبينا محمد ﷺ</div>
+    </div>
+  </div>
+</div>
+
+<audio id="sound">
+  <source src="https://assets.mixkit.co/sfx/preview/mixkit-soft-bell-2095.mp3">
+</audio>
+
+<script>
+let opened=false;
+function openBox(box){
+  box.classList.toggle("open");
+  if(!opened){
+    document.getElementById("sound").play();
+    opened=true;
+  }
+}
+</script>
+
+</body>
+</html>
